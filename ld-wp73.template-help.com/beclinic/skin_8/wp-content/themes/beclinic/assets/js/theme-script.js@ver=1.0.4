@@ -1,0 +1,164 @@
+;var Beclinic_Theme_JS;
+
+/* jquery.stickup.min.js */
+! function(t) {
+	t.fn.stickUp = function(e) {
+		function o() {
+			a = parseInt(n.offset().top), d = parseInt(n.css("margin-top")), u = parseInt(n.outerHeight(!0)), c.pseudo && (t('<div class="pseudoStickyBlock"></div>').insertAfter(n), i = t(".pseudoStickyBlock"), i.css({
+				position: "relative",
+				display: "block"
+			})), c.active && s(), n.addClass("stuckMenu")
+		}
+
+		function s() {
+			p.on("scroll.stickUp", function() {
+				r = t(this).scrollTop(), S = r > k ? "down" : "up", k = r, 0 != h.length ? correctionValue = h.outerHeight(!0) : correctionValue = 0, f = parseInt(l.scrollTop()), a - correctionValue < f ? (n.addClass("isStuck"), v.addClass("isStuck"), c.pseudo ? (n.css({
+					position: "fixed",
+					top: correctionValue
+				}), i.css({
+					height: u
+				})) : n.css({
+					position: "fixed",
+					top: correctionValue
+				})) : (n.removeClass("isStuck"), v.removeClass("isStuck"), c.pseudo ? (n.css({
+					position: "relative",
+					top: 0
+				}), i.css({
+					height: 0
+				})) : n.css({
+					position: "absolute",
+					top: 0
+				}))
+			}).trigger("scroll.stickUp"), p.on("resize", function() {
+				n.hasClass("isStuck") ? a != parseInt(i.offset().top) && (a = parseInt(i.offset().top)) : a != parseInt(n.offset().top) && (a = parseInt(n.offset().top))
+			})
+		}
+		var c = {
+			correctionSelector: ".correctionSelector",
+			listenSelector: ".listenSelector",
+			active: !1,
+			pseudo: !0
+		};
+		t.extend(c, e);
+		var i, r, n = t(this),
+			l = t(window),
+			p = t(document),
+			a = 0,
+			u = 0,
+			d = 0,
+			f = 0,
+			k = 0,
+			S = "",
+			h = t(c.correctionSelector),
+			v = t(c.listenSelector);
+		0 != n.length && o()
+	}
+}(jQuery);
+
+(function($) {
+	'use strict';
+
+	Beclinic_Theme_JS = {
+
+		init: function() {
+			this.page_preloader_init();
+			this.toTopInit();
+			this.responsiveMenuInit();
+			this.magnificPopupInit();
+			this.swiperInit();
+			this.header_search(this);
+		},
+
+		page_preloader_init: function(self) {
+
+			if ($('.page-preloader-cover')[0]) {
+				$('.page-preloader-cover').delay(500).fadeTo(500, 0, function() {
+					$(this).remove();
+				});
+			}
+		},
+
+		toTopInit: function() {
+			if ($.isFunction(jQuery.fn.UItoTop)) {
+				$().UItoTop({
+					text: '',
+					scrollSpeed: 600
+				});
+			}
+		},
+
+		responsiveMenuInit: function() {
+			if (typeof beclinicResponsiveMenu !== 'undefined') {
+				beclinicResponsiveMenu();
+			}
+		},
+
+		magnificPopupInit: function() {
+
+			if (typeof $.magnificPopup !== 'undefined') {
+
+				//MagnificPopup init
+				$('[data-popup="magnificPopup"]').magnificPopup({
+					type: 'image'
+				});
+
+				$(".gallery > .gallery-item a").filter("[href$='.png'],[href$='.jpg']").magnificPopup({
+					type: 'image',
+					gallery: {
+						enabled: true,
+						navigateByImgClick: true,
+					},
+				});
+
+			}
+		},
+                header_search: function(self) {
+			var $search = $('.search-form-wrapper'),
+				$searchToggle = $('.search-form__toggle', $search),
+				$searchInput = $('.search-form__field', $search),
+				searchHandler = function(event) {
+					$search.toggleClass('search-active');
+
+					if ($search.hasClass('search-active')) {
+						$searchInput.focus();
+					}
+				},
+				removeActiveClass = function(event) {
+					if ($(event.target).closest($searchToggle).length || $(event.target).closest($searchInput).length) {
+						return;
+					}
+
+					if ($search.hasClass('search-active')) {
+						$search.removeClass('search-active');
+					}
+
+					event.stopPropagation();
+				};
+
+                        $searchToggle.on('click', searchHandler);
+
+		},
+		swiperInit: function() {
+			if (typeof Swiper !== 'undefined') {
+
+				//Swiper carousel init
+				var mySwiper = new Swiper('.swiper-container', {
+					// Optional parameters
+					loop: true,
+					spaceBetween: 10,
+					autoHeight: true,
+
+					// Navigation arrows
+					navigation: {
+						nextEl: '.swiper-button-next',
+						prevEl: '.swiper-button-prev'
+					}
+				})
+
+			}
+		}
+	};
+
+	Beclinic_Theme_JS.init();
+
+}(jQuery));
