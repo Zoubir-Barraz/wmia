@@ -3,6 +3,12 @@
   max-width: 1200px;
 }
 
+@media (max-width: 1200px) {
+  .main-content {
+    margin: 0 15px;
+  }
+}
+
 #page-titre {
   color: #4c4b4b;
   font-family: "Abril Fatface", Sans-serif;

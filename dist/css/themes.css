@@ -14,10 +14,10 @@
 
 .filters-list {
     display: flex;
-    flex-wrap: wrap;
     justify-content: space-around;
     list-style: none;
     margin: 0;
+    overflow: auto;
     padding: 0;
 }
 
@@ -28,6 +28,7 @@
     font-size: 14px;
     font-weight: 600;
     line-height: 1.5em;
-    padding: 20px 0;
+    padding: 20px;
     text-decoration: none !important;
+    white-space: nowrap;
 }
