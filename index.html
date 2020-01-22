@@ -7,39 +7,20 @@
     <link rel="stylesheet" href="/dist/css/normalize.css" type="text/css">
     <link rel="stylesheet" href="/dist/css/style.css" type="text/css">
     <link rel="stylesheet" href="/dist/css/regions.css" type="text/css">
-    <link rel="stylesheet" href="/dist/css/themes.css" type="text/css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface:400|Lato:400,600|Oswald:400,500"
         type="text/css">
-    <link rel="stylesheet" href="/vendor/leaflet/leaflet.css" />
 </head>
 
 <body>
 
     <div class="main-content">
 
-        <section class="themes">
-            <h2 class="themes-title">Cartes par Thématiques</h2>
-
-            <ul class="filters-list">
-                <li class="filter-item"><a class="filter-link" href="#">Tout</a></li>
-                <li class="filter-item"><a class="filter-link" href="#">Pib Par Habitant</a></li>
-                <li class="filter-item"><a class="filter-link" href="#">Chômage</a></li>
-                <li class="filter-item"><a class="filter-link" href="#">Pauvreté</a></li>
-                <li class="filter-item"><a class="filter-link" href="#">Education</a></li>
-                <li class="filter-item"><a class="filter-link" href="#">Qualité de la viet</a></li>
-                <li class="filter-item"><a class="filter-link" href="#">Santé</a></li>
-                <li class="filter-item"><a class="filter-link" href="#">Biodiversité</a> </li>
-            </ul>
-
-            <div id="map" style="height: 600px;"></div>
-        </section>
-
         <section class="regions">
             <h2 class="regions-title">Cartes par régions</h2>
 
             <ul class="regions-grid">
                 <li class="regions-item">
-                    <a class="card-wrapper" href="#">
+                    <a class="card-wrapper" href="/regions/index.html?titre=Tanger Tetouan Al-houceima&region=1">
                         <span class="card-title">Tanger Tetouan Al-houceima</span>
                     </a>
                 </li>
@@ -94,8 +75,7 @@
                     </a>
                 </li>
                 <li class="regions-item">
-                    <a class="card-wrapper"
-                        href="/regions/index.html?titre=Dakhla Oued Ed-Dahab&region=dakhla-oued-ed-dahab">
+                    <a class="card-wrapper" href="/regions/index.html?titre=Dakhla Oued Ed-Dahab&region=12">
                         <span class="card-title">Dakhla Oued Ed-Dahab</span>
                     </a>
                 </li>
@@ -111,8 +91,7 @@
         </p>
     </footer>
 
-    <script src="vendor/leaflet/leaflet.js"></script>
-    <script src="dist/js/main.js"></script>
+    <script src="/dist/js/main.js"></script>
 </body>
 
 </html>
