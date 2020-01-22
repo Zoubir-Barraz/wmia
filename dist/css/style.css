@@ -1,3 +1,7 @@
+/* 
+ * Main
+ */
+
 .main-content {
   margin: 0 auto;
   max-width: 1200px;
@@ -31,7 +35,7 @@
 
 .breadcrumbs-item + .breadcrumbs-item::before {
   color: #292c30;
-  content: '/';
+  content: "/";
   font-family: "Lato", Sans-serif;
   font-size: 18px;
   font-style: normal;
@@ -41,19 +45,19 @@
 }
 
 .breadcrumbs-text {
-	font-family: "Lato", Sans-serif;
-	font-size: 18px;
-	font-weight: 300;
-	text-transform: none;
+  font-family: "Lato", Sans-serif;
+  font-size: 18px;
+  font-weight: 300;
+  text-transform: none;
   color: #292c30;
   font-style: normal;
 }
 
 .breadcrumbs-link {
-	font-family: "Lato", Sans-serif;
-	font-size: 18px;
-	font-weight: 300;
-	text-transform: none;
+  font-family: "Lato", Sans-serif;
+  font-size: 18px;
+  font-weight: 300;
+  text-transform: none;
   color: #be6584;
   font-style: normal;
   text-decoration: none !important;

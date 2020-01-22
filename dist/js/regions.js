@@ -1,3 +1,7 @@
+/* 
+ * Régions
+ */
+
 var regions = [
     {
         "type": "FeatureCollection",
@@ -24,66 +28,3 @@ var regions = [
         ]
     }
 ]
-
-function getParameterByName(name) {
-    url = window.location.href;
-
-    name = name.replace(/[\[\]]/g, '\\$&');
-
-    var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
-        results = regex.exec(url);
-
-    if (!results) return null;
-
-    if (!results[2]) return '';
-
-    return decodeURIComponent(results[2].replace(/\+/g, ' '));
-}
-
-function getColor(d) {
-    return (d < 10847.0 & d > 2695.0) ? '#800026' :
-        (d < 27979.0 & 10848.0 < d) ? '#BD0026' :
-            (d < 38976.0 & 27980.0 < d) ? '#E31A1C' :
-                '#FFEDA0';
-}
-
-function style(feature) {
-    return {
-        weight: 2,
-        opacity: 1,
-        color: 'white',
-        dashArray: '3',
-        fillOpacity: 0.7,
-        fillColor: getColor(feature.properties.PIBparHABI)
-    };
-}
-
-
-
-(function () {
-    var titre = getParameterByName('titre');
-    var region = getParameterByName('region');
-
-    document.getElementById('page-titre').textContent = titre;
-
-    var currentRegion = regions.find(function (r) {
-        return r.name === region
-    })
-
-    var map = L.map('map').setView([51.505, -0.09], 13);
-
-    L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
-        maxZoom: 18,
-        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
-            '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
-            'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-        id: 'mapbox/streets-v11'
-    }).addTo(map);
-
-    var geojson = L.geoJson(currentRegion, {
-        style: style,
-    }).addTo(map);
-
-    var currentBounds = geojson.getBounds()
-    map.fitBounds(currentBounds);
-})();
