@@ -1,0 +1,33 @@
+.themes-title {
+  color: #4c4b4b;
+  font-family: "Oswald", Sans-serif;
+  font-size: 42px;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 1.7px;
+  line-height: 1em;
+  margin-bottom: 80px;
+  margin-top: 80px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.filters-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.filter-link {
+    color: #1e2428;
+    display: block;
+    font-family: "Lato", Sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.5em;
+    padding: 20px 0;
+    text-decoration: none !important;
+}

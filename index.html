@@ -4,81 +4,115 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="dist/css/style.css" type="text/css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald:400,500|Abril+Fatface:400"
+    <link rel="stylesheet" href="/dist/css/normalize.css" type="text/css">
+    <link rel="stylesheet" href="/dist/css/style.css" type="text/css">
+    <link rel="stylesheet" href="/dist/css/regions.css" type="text/css">
+    <link rel="stylesheet" href="/dist/css/themes.css" type="text/css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface:400|Lato:400,600|Oswald:400,500"
         type="text/css">
+    <link rel="stylesheet" href="/vendor/leaflet/leaflet.css" />
 </head>
 
-<body>  
+<body>
 
-    
-    <section class="profils-regionaux">
-        <h2 class="profils-regionaux-title">Profils Régionaux</h2>
+    <div class="main-content">
 
-        <ul class="profils-regionaux-grid">
-            <li class="profils-regionaux-item">
-                <a class="card-wrapper" href="#">
-                    <span class="card-title">Tanger Tetouan Al-houceima</span>
-                </a>
-            </li>
-            <li class="profils-regionaux-item">
-                <a class="card-wrapper" href="#">
-                    <span class="card-title">L'Oriental</span>
-                </a>
-            </li>
-            <li class="profils-regionaux-item">
-                <a class="card-wrapper" href="#">
-                    <span class="card-title">Fès-Meknes</span>
-                </a>
-            </li>
-            <li class="profils-regionaux-item">
-                <a class="card-wrapper" href="#">
-                    <span class="card-title">Rabat-Salé-Kénitra</span>
-                </a>
-            </li>
-            <li class="profils-regionaux-item">
-                <a class="card-wrapper" href="#">
-                    <span class="card-title">Béni Mellal-Khenifra</span>
-                </a>
-            </li>
-            <li class="profils-regionaux-item">
-                <a class="card-wrapper" href="#">
-                    <span class="card-title">Casablanca-Settat</span>
-                </a>
-            </li>
-            <li class="profils-regionaux-item">
-                <a class="card-wrapper" href="#">
-                    <span class="card-title">Marrakech-Safi</span>
-                </a>
-            </li>
-            <li class="profils-regionaux-item">
-                <a class="card-wrapper" href="#">
-                    <span class="card-title">Draa-Tafilalet</span>
-                </a>
-            </li>
-            <li class="profils-regionaux-item">
-                <a class="card-wrapper" href="#">
-                    <span class="card-title">Souss-Massa</span>
-                </a>
-            </li>
-            <li class="profils-regionaux-item">
-                <a class="card-wrapper" href="#">
-                    <span class="card-title">Guelmim-Oued Noun</span>
-                </a>
-            </li>
-            <li class="profils-regionaux-item">
-                <a class="card-wrapper" href="#">
-                    <span class="card-title">Laayoune Sakia El Hamra</span>
-                </a>
-            </li>
-            <li class="profils-regionaux-item">
-                <a class="card-wrapper" href="#">
-                    <span class="card-title">Dakhla Oued Ed-Dahab</span>
-                </a>
-            </li>
-        </ul>
-    </section>
+        <section class="themes">
+            <h2 class="themes-title">Cartes par Thématiques</h2>
 
+            <ul class="filters-list">
+                <li class="filter-item"><a class="filter-link" href="#">Tout</a></li>
+                <li class="filter-item"><a class="filter-link" href="#">Pib Par Habitant</a></li>
+                <li class="filter-item"><a class="filter-link" href="#">Chômage</a></li>
+                <li class="filter-item"><a class="filter-link" href="#">Pauvreté</a></li>
+                <li class="filter-item"><a class="filter-link" href="#">Education</a></li>
+                <li class="filter-item"><a class="filter-link" href="#">Qualité de la viet</a></li>
+                <li class="filter-item"><a class="filter-link" href="#">Santé</a></li>
+                <li class="filter-item"><a class="filter-link" href="#">Biodiversité</a> </li>
+            </ul>
+
+            <div id="map" style="height: 600px;"></div>
+        </section>
+
+        <section class="regions">
+            <h2 class="regions-title">Cartes par régions</h2>
+
+            <ul class="regions-grid">
+                <li class="regions-item">
+                    <a class="card-wrapper" href="#">
+                        <span class="card-title">Tanger Tetouan Al-houceima</span>
+                    </a>
+                </li>
+                <li class="regions-item">
+                    <a class="card-wrapper" href="#">
+                        <span class="card-title">L'Oriental</span>
+                    </a>
+                </li>
+                <li class="regions-item">
+                    <a class="card-wrapper" href="#">
+                        <span class="card-title">Fès-Meknes</span>
+                    </a>
+                </li>
+                <li class="regions-item">
+                    <a class="card-wrapper" href="#">
+                        <span class="card-title">Rabat-Salé-Kénitra</span>
+                    </a>
+                </li>
+                <li class="regions-item">
+                    <a class="card-wrapper" href="#">
+                        <span class="card-title">Béni Mellal-Khenifra</span>
+                    </a>
+                </li>
+                <li class="regions-item">
+                    <a class="card-wrapper" href="#">
+                        <span class="card-title">Casablanca-Settat</span>
+                    </a>
+                </li>
+                <li class="regions-item">
+                    <a class="card-wrapper" href="#">
+                        <span class="card-title">Marrakech-Safi</span>
+                    </a>
+                </li>
+                <li class="regions-item">
+                    <a class="card-wrapper" href="#">
+                        <span class="card-title">Draa-Tafilalet</span>
+                    </a>
+                </li>
+                <li class="regions-item">
+                    <a class="card-wrapper" href="#">
+                        <span class="card-title">Souss-Massa</span>
+                    </a>
+                </li>
+                <li class="regions-item">
+                    <a class="card-wrapper" href="#">
+                        <span class="card-title">Guelmim-Oued Noun</span>
+                    </a>
+                </li>
+                <li class="regions-item">
+                    <a class="card-wrapper" href="#">
+                        <span class="card-title">Laayoune Sakia El Hamra</span>
+                    </a>
+                </li>
+                <li class="regions-item">
+                    <a class="card-wrapper"
+                        href="/regions/index.html?titre=Dakhla Oued Ed-Dahab&region=dakhla-oued-ed-dahab">
+                        <span class="card-title">Dakhla Oued Ed-Dahab</span>
+                    </a>
+                </li>
+            </ul>
+        </section>
+
+    </div>
+
+
+    <footer class="footer">
+        <p>
+            © 2020 ZOUBIR BARRAZ . All rights reserved.
+        </p>
+    </footer>
+
+    <script src="vendor/leaflet/leaflet.js"></script>
+    <script src="dist/js/main.js"></script>
 </body>
 
 </html>
