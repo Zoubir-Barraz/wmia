@@ -4,7 +4,7 @@
 var attribut = getParameterByName('attribut');
 var function_choice = getParameterByName('index');
 
-var function_name = functions(function_choice)       
+var function_name = functions [function_choice]  
 var functions = [
 
 function getColor1(d) {
