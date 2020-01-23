@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/dist/css/normalize.css" type="text/css">
+    <link rel="stylesheet" href="/dist/css/style.css" type="text/css">
+    <link rel="stylesheet" href="/dist/css/themes.css" type="text/css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface:400|Lato:300,600|Oswald:400,500"
+        type="text/css">
+    <link rel="stylesheet" href="/vendor/leaflet/leaflet.css" />
+</head>
+
+<body>
+
+    <div class="main-content">
+
+        <h1 id="page-titre">Rabat-Salé-Kénitra</h1>
+
+        <ul class="breadcrumbs">
+            <li class="breadcrumbs-item">
+                <a class="breadcrumbs-link" href="/">Home</a>
+            </li>
+            <li class="breadcrumbs-item">
+                <span class="breadcrumbs-text">Régions</span>
+            </li>
+        </ul>
+
+        <section class="themes">
+            <ul class="filters-list">
+                <li class="filter-item"><a class="filter-link" href="/regions/rabat-sale-kenitra/pib">Pib Par Habitant</a></li>
+                <li class="filter-item"><a class="filter-link" href="/regions/rabat-sale-kenitra/chomage">Chômage</a></li>
+                <li class="filter-item"><a class="filter-link" href="/regions/rabat-sale-kenitra/pauvrete">Pauvreté</a></li>
+                <li class="filter-item"><a class="filter-link" href="/regions/rabat-sale-kenitra/education">Education</a></li>
+                <li class="filter-item"><a class="filter-link" href="/regions/rabat-sale-kenitra/qualite-vie">Qualité de la vie</a></li>
+                <li class="filter-item"><a class="filter-link" href="/regions/rabat-sale-kenitra/sante">Santé</a></li>
+                <li class="filter-item"><a class="filter-link active" href="/regions/rabat-sale-kenitra/biodiversite">Biodiversité</a> </li>
+            </ul>
+
+            <div id="map" style="height: 600px;"></div>
+        </section>
+
+    </div>
+
+    <footer class="footer">
+        <p>
+            © 2020 BAKKALI LAMHAMDI FIRDAWS & ZOUBIR BARRAZ . All rights reserved.
+        </p>
+    </footer>
+
+    <script src="/vendor/leaflet/leaflet.js"></script>
+    <script src="/dist/js/12.js"></script>
+    <script src="/regions/rabat-sale-kenitra/biodiversite/biodiversite/index.js"></script>
+</body>
+
+</html>
