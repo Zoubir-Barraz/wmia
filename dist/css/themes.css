@@ -36,3 +36,7 @@
     text-decoration: none !important;
     white-space: nowrap;
 }
+
+.filter-link.active {
+    color: #e67ea9;
+}
