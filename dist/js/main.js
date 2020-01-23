@@ -2,17 +2,17 @@
  * Main
  */
 
-(function () {
-    var titre = getParameterByName('titre');
-    var region = getParameterByName('region');
+//(function () {
+    //var attribut = getParameterByName('attribut');
+    //var function_choice = getParameterByName('index');
 
-    document.getElementById('page-titre').textContent = titre;
+    //document.getElementById('titre').textContent = titre;
 
-    var currentRegion = regions.find(function (r) {
-        return r.name === region
-    })
+    //var currentfunction = feature.find(function (r) {
+        //return r.name === functions(function_choice)
+    //})
 
-    var map = L.map('map').setView([51.505, -0.09], 13);
+    //var map = L.map('map').setView([34, -4], 6);
 
     L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
         maxZoom: 18,
@@ -22,10 +22,11 @@
         id: 'mapbox/streets-v11'
     }).addTo(map);
 
-    var geojson = L.geoJson(currentRegion, {
-        style: style,
-    }).addTo(map);
+	var geojson = L.geoJson(region, {
+		style: style,
+	}).addTo(map);
 
-    var currentBounds = geojson.getBounds()
-    map.fitBounds(currentBounds);
-})();
+
+    //var currentBounds = geojson.getBounds()
+    //map.fitBounds(currentBounds);
+//})();
