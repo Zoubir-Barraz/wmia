@@ -22,7 +22,7 @@ function style(feature) {
  };
 }
 
-var geojson = L.geoJson(laayoune, {
+var geojson = L.geoJson(region, {
  style: style,
 }).addTo(map);
 
@@ -70,15 +70,15 @@ function resetHighlight(e) {
 function zoomToFeature(e) {
 map.fitBounds(e.target.getBounds());
 }
-function onEachFeature(feature, laayoune) {
- laayoune.on({
+function onEachFeature(feature, region) {
+ region.on({
      mouseover: highlightFeature,
      mouseout: resetHighlight,
      click: zoomToFeature
  });
 }
 
-geojson = L.geoJson(laayoune, {
+geojson = L.geoJson(region, {
  style: style,
  onEachFeature: onEachFeature
 }).addTo(map);

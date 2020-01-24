@@ -3,9 +3,9 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 }).addTo(map);
 function getColor(d) {
- return  (d < 26.6 | d == "0-26.5")  ? '#adcbe3' :
-         (d < 51.1 | d == "26.6-51")  ? '#4b86b4' :
-         (d < 69 | d == "51.1-68") ? '#2a4d69' :
+ return  (d <= 4.9 & d >= 1.6 ) | d == "1.6-4.9"   ? '#adcbe3' :
+        (d <= 9.4 & 5 <= d ) | d == "5-9.4"  ? '#4b86b4' :
+        (d <= 14.6 & 9.5 <= d) | d == "9.5-14.6" ? '#2a4d69' :
                              '#FFEDA0';
 }
 function style(feature) {
@@ -28,7 +28,7 @@ legend.onAdd = function (map) {
 
 var div = L.DomUtil.create('div', 'info legend');
 labels = ['<strong>Taux de chômage en 2016 (%)</strong>'],
-categories = ["0-26.5","26.6-51","51.1-68",'Other'];
+categories = ["1.6-4.9" ,"5-9.4","9.5-14.6",'Other'];
 
 for (var i = 0; i < categories.length; i++) {
 

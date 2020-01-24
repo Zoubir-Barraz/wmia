@@ -9,8 +9,8 @@ L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
 }).addTo(map);
 
 function getColor(d) {
-    return (16559 < d & d< 20559) | d == "16559-20559" ? '#b2d8d8' :
-            (205560 < d & d < 24600) |d == "205560-24600" ? '#66b2b2' :
+    return (16559 < d & d<= 20599) | d == "16559-20559" ? '#b2d8d8' :
+            (20560 <= d & d <= 24600) |d == "20560-24600" ? '#66b2b2' :
             (24601 < d & d < 48111)|d == "24601-48111" ? '#008080' :
                                     '#FEB24C';
 }
@@ -35,7 +35,7 @@ legend.onAdd = function (map) {
 
     var div = L.DomUtil.create('div', 'info legend');
     labels = ['<strong>PIB par habitant (DH)</strong>'],
-        categories = ["16559-20559", "205560-24600","24601-48111", 'Other'];
+        categories = ["16559-20559", "20560-24600","24601-48111", 'Other'];
 
     for (var i = 0; i < categories.length; i++) {
 

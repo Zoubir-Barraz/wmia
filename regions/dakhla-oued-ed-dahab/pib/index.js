@@ -34,7 +34,7 @@ var legend = L.control({ position: 'bottomleft' });
 legend.onAdd = function (map) {
 
     var div = L.DomUtil.create('div', 'info legend');
-    labels = ['<strong>Taux de couverture forestière en 2014 (%)</strong>'],
+    labels = ['<strong>PIB par habitant (DH)</strong>'],
         categories = ["18897.0", "56620.0", 'Other'];
 
     for (var i = 0; i < categories.length; i++) {

@@ -6,7 +6,7 @@ var map = L.map('map').setView([32, -6], 4.75);
 	function getColor(d) {
 		return  d == 0 | d == "0" ? '#f0f7da' :
 				d < 19.1 | d == "0.1-19" ? '#77ab59' :
-				d < 75.8 | d == "19.1-75.7" ? '#234d20' :
+				d < 76.8 | d == "19.1-76" ? '#234d20' :
 									'#FFEDA0';
 	}
 
@@ -32,7 +32,7 @@ var map = L.map('map').setView([32, -6], 4.75);
 
     var div = L.DomUtil.create('div', 'info legend');
     labels = ['<strong>Taux de mortalité maternelle en 2015 Pour 10.000 accouchements</strong>'],
-    categories = ["0","0.1-19","19.1-75.7",'Other'];
+    categories = ["0","0.1-19","19.1-76",'Other'];
 
     for (var i = 0; i < categories.length; i++) {
 

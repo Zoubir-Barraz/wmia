@@ -5,7 +5,7 @@ var map = L.map('map').setView([32, -6], 4.75);
 	function getColor(d) {
 		return  (d < 7.2 | d == "2.5-7.1")  ? '#00FFFF' :
 				(d < 38.2 | d == "7.2-38.1")  ? '#03396c' :
-				(d < 59.8 | d == "38.2-59.7") ? '#005b96' :
+				(d < 60.1 | d == "38.2-60.1") ? '#005b96' :
 									'#FFEDA0';
 	}
 	function style(feature) {
@@ -28,7 +28,7 @@ var map = L.map('map').setView([32, -6], 4.75);
 
     var div = L.DomUtil.create('div', 'info legend');
     labels = ['<strong>Taux de couverture forestière en 2014 (%)</strong>'],
-    categories = ["2.5-7.1","7.2-38.1","38.2-59.7",'Other'];
+    categories = ["2.5-7.1","7.2-38.1","38.2-60.1",'Other'];
 
     for (var i = 0; i < categories.length; i++) {
 
