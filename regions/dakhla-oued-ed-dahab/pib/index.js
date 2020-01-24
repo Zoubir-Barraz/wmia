@@ -9,8 +9,8 @@ L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
 }).addTo(map);
 
 function getColor(d) {
-    return  d == 18897.0 |d == "18897.0" ? '#fee6ce' :
-            d == 56620.0 |d == "56620.0" ? '#fdae6b' :
+    return  d == 18897.0 |d == "18897.0" ? '#66b2b2' :
+            d == 56620.0 |d == "56620.0" ? '#008080' :
                             '#2b8cbe';
 }
 

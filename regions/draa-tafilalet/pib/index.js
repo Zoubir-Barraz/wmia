@@ -9,9 +9,9 @@ L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
 }).addTo(map);
 
 function getColor(d) {
-    return (16559 < d & d< 20559) | d == "16559-20559" ? '#fee6ce' :
-            (205560 < d & d < 24600) |d == "205560-24600" ? '#fdae6b' :
-            (24601 < d & d < 48111)|d == "24601-48111" ? '#e6550d' :
+    return (16559 < d & d< 20559) | d == "16559-20559" ? '#b2d8d8' :
+            (205560 < d & d < 24600) |d == "205560-24600" ? '#66b2b2' :
+            (24601 < d & d < 48111)|d == "24601-48111" ? '#008080' :
                                     '#FEB24C';
 }
 function style(feature) {

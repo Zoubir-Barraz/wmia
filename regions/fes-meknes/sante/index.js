@@ -5,8 +5,8 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 }).addTo(map);
 
 function getColor(d) {
-    return d < 22 | d == "0-21" ? '#800026' :
-        d < 44 | d == "22-43" ? '#BD0026' :
+    return d < 22 | d == "0-21" ? '#f0f7da' :
+        d < 44 | d == "22-43" ? '#234d20' :
             '#FFEDA0';
 }
 

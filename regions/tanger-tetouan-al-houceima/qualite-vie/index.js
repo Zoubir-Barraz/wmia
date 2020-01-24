@@ -4,9 +4,9 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 }).addTo(map);
 
 function getColor(d) {
-    return (0.0 < d & d< 0.1) | d == "0-0.1" ? '#fee6ce' :
-            (0.1 < d & d < 28.5) | d == "0.1-28.5" ? '#fdae6b' :
-            (28.6 < d & d < 56.2) | d == "28.6-56.2" ? '#e6550d' :
+    return (0.0 < d & d< 0.1) | d == "0-0.1" ? '#ffcd94' :
+            (0.1 < d & d < 28.5) | d == "0.1-28.5" ? '#ffad60' :
+            (28.6 < d & d < 56.2) | d == "28.6-56.2" ? '#ff4d00' :
                                 '#FFEDA0';
 }
 

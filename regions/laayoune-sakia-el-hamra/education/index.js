@@ -4,8 +4,8 @@ attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStree
 }).addTo(map);
 
 function getColor(d) {
- return  d < 0.46 | d == "0.40-0.45"  ? '#800026' :
-         d < 0.52 | d == "0.45-0.51" ? '#BD0026' :
+ return  d < 0.46 | d == "0.40-0.45"  ? '#fe8181' :
+         d < 0.52 | d == "0.45-0.51" ? '#b62020' :
                              '#FFEDA0';
 }
 

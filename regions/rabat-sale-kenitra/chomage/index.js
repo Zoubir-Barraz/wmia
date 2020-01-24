@@ -3,9 +3,9 @@ var map = L.map('map').setView([32, -6], 4.75);
        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
        }).addTo(map);
 	function getColor(d) {
-		return  (d <8.1) | d == "6-8" ? '#800026' :
-				(d <10.1 ) | d == "8.1-10"  ? '#BD0026' :
-				(d <13.6) | d == "10.1-13.5"  ? '#E31A1C' :
+		return  (d <8.1) | d == "6-8" ? '#adcbe3' :
+				(d <10.1 ) | d == "8.1-10"  ? '#4b86b4' :
+				(d <13.6) | d == "10.1-13.5"  ? '#2a4d69' :
 									'#FFEDA0';
 	}
 

@@ -3,11 +3,11 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 }).addTo(map);
 function getColor(d) {
- return  (d <= 4.9 & d >= 3.4 ) | d == "3.4-4.9" ? '#800026' :
-         (d <= 11.8 & 4.9 <= d ) | d == "4.9-11.8" ? '#BD0026' :
-         (d <= 15.1 & 11.8 <= d) | d == "11.8-15.1" ? '#E31A1C' :
-         (d <= 18.4 & 15.1 <= d) | d == "15.1-18.4" ? '#E31A1C' :
-         (d==0) | d == "0" ? '#ffffff' :
+ return  (d <= 4.9 & d >= 3.4 ) | d == "3.4-4.9" ? '#adcbe3' :
+         (d <= 11.8 & 4.9 <= d ) | d == "4.9-11.8" ? '#4b86b4' :
+         (d <= 15.1 & 11.8 <= d) | d == "11.8-15.1" ? '#2a4d69' :
+         (d <= 18.4 & 15.1 <= d) | d == "15.1-18.4" ? '#011f4b' :
+         (d==0) | d == "Non renseigné" ? '#ffffff' :
                              '#FFEDA0';
 }
 
@@ -33,7 +33,7 @@ legend.onAdd = function (map) {
 
 var div = L.DomUtil.create('div', 'info legend');
 labels = ['<strong>Taux de chômage en 2016 (%)</strong>'],
-categories = ["0","3.4-4.9","4.9-11.8","11.8-15.1","15.1-18.4",'Other'];
+categories = ["Non renseigné","3.4-4.9","4.9-11.8","11.8-15.1","15.1-18.4",'Other'];
 
 for (var i = 0; i < categories.length; i++) {
 

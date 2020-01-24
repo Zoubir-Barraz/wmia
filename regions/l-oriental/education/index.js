@@ -14,9 +14,9 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=p
 
 // get color depending on population density value
 function getColor(d) {
-    return d < 0.430 | d == "0.429" ? '#fee6ce' :
-        (0.430 < d & d < 0.557) | d == "0.43 - 0.557" ? '#fdae6b' :
-        (0.558 < d & d < 0.649) | d == "0.558 - 0.649" ? '#e6550d' :
+    return d < 0.430 | d == "0.429" ? '#fe8181' :
+        (0.430 < d & d < 0.557) | d == "0.43 - 0.557" ? '#fe2e2e' :
+        (0.558 < d & d < 0.649) | d == "0.558 - 0.649" ? '#b62020' :
         '#FEB24C';
 }
 

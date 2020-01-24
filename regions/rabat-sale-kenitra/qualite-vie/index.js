@@ -4,9 +4,9 @@ var map = L.map('map').setView([32, -6], 4.75);
        }).addTo(map);
 
 	function getColor(d) {
-		return  d == 0.2 | d == "0.2"  ? '#800026' :
-				d < 2.9 | d == "0.3-2.8"  ? '#BD0026' :
-				d < 5.1 | d == "2.9-5" ? '#E31A1C' :
+		return  d == 0.2 | d == "0.2"  ? '#ffcd94' :
+				d < 2.9 | d == "0.3-2.8"  ? '#ffad60' :
+				d < 5.1 | d == "2.9-5" ? '#ff4d00' :
 									'#FFEDA0';
 	}
 

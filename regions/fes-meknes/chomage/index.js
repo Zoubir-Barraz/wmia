@@ -3,9 +3,9 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 }).addTo(map);
 function getColor(d) {
- return  (d < 26.6 | d == "0-26.5")  ? '#800026' :
-         (d < 51.1 | d == "26.6-51")  ? '#BD0026' :
-         (d < 69 | d == "51.1-68") ? '#E31A1C' :
+ return  (d < 26.6 | d == "0-26.5")  ? '#adcbe3' :
+         (d < 51.1 | d == "26.6-51")  ? '#4b86b4' :
+         (d < 69 | d == "51.1-68") ? '#2a4d69' :
                              '#FFEDA0';
 }
 function style(feature) {
