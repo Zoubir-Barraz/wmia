@@ -3,7 +3,7 @@ $( document ).ready(function() {
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(map);
-    url = "centroideregion.json"
+    url = "/Maroc/pauvrete-chomage/centroideregion.json"
     $.getJSON(url, function(data) {
         geojsonLayer = L.geoJson(data, {
             pointToLayer: function (feature, latlng) {
