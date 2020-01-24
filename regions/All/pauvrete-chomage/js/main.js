@@ -3,19 +3,17 @@ $( document ).ready(function() {
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(map);
-    
-    url = "/Maroc/pib-par-secteur/centroideregion.json"
+    url = "/regions/All/pauvrete-chomage/centroideregion.json"
     $.getJSON(url, function(data) {
         geojsonLayer = L.geoJson(data, {
             pointToLayer: function (feature, latlng) {
                 var options = {
                     data: {
-                        'PIB_sec_primaire': feature.properties.Primaire,
-                        'PIB_sec_secondaire': feature.properties.Secondaire,
-                        'PIB_sec_Tertiaire': feature.properties.Tertiaire
+                        'Taux_chômage': feature.properties.taux_chom,
+                        'Taux_pauvrete': feature.properties.taux_pauvr,
                     },
                     chartOptions: {
-                        'PIB_sec_primaire': {
+                        'Taux_chômage': {
                             fillColor: '#ffe39f',
                             minValue: 0,
                             maxValue: 100,
@@ -24,17 +22,8 @@ $( document ).ready(function() {
                                 return value + "%";
                             }
                         },
-                        'PIB_sec_secondaire': {
-                            fillColor: '#d30000',
-                            minValue: 0,
-                            maxValue: 100,
-                            maxHeight: 100,
-                            displayText: function (value) {
-                                return value + "%";
-                            }
-                        },
-                        'PIB_sec_Tertiaire': {
-                            fillColor: '#004c97',
+                        'Taux_pauvrete': {
+                            fillColor: '#0000FF',
                             minValue: 0,
                             maxValue: 100,
                             maxHeight: 100,
@@ -47,12 +36,12 @@ $( document ).ready(function() {
                     color: '#666',
                     opacity: 1
                 }
-                //var barChartMarker = new L.BarChartMarker(latlng, options);
+                var barChartMarker = new L.BarChartMarker(latlng, options);
                 //var barChartMarker = new L.RadialBarChartMarker(latlng, options);
                 //var barChartMarker = new L.StackedRegularPolygonMarker(latlng, options);
-                var barChartMarker = new L.PieChartMarker(latlng, options);    
+                //var barChartMarker = new L.PieChartMarker(latlng, options);    
                 //var barChartMarker = new L.CoxcombChartMarker(latlng, options);
-                //var barChartMarker = new L.RadialMeterMarker(latlng, options);
+                //var barChartMarker = new L.RadialMeterMarker(latlng, options);   
                 return barChartMarker;
             }
         });
