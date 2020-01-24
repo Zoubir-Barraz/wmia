@@ -1,19 +1,16 @@
-var map = L.map('map').setView([34, -4], 6);
 
-L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
-    maxZoom: 18,
-    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
-        '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
-        'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-    id: 'mapbox/streets-v11'
+var map = L.map('map').setView([34, -4], 4);
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 }).addTo(map);
 
 function getColor(d) {
-    return  d< 0.1 | d =="0-0.1" ? '#fee6ce' :
+    return  d == 0 | d == "0" ? '#fee6ce' :
             (0.1 < d & d < 49.2) | d == "0.1-49.2" ? '#fdae6b' :
             (49.3 < d & d < 60.3) | d == "49.3-60.3" ? '#e6550d' :
                                     '#FEB24C';
 }
+
 
 function style(feature) {
     return {
@@ -35,8 +32,8 @@ var legend = L.control({ position: 'bottomleft' });
 legend.onAdd = function (map) {
 
     var div = L.DomUtil.create('div', 'info legend');
-    labels = ['<strong>Taux de couverture forestière en 2014 (%)</strong>'],
-        categories = ["1.7", "3.3", 'Other'];
+    labels = ['<strong>Taux de mortalité maternelle en 2015 Pour 10.000 accouchements</strong>'],
+        categories = ["0", "0.1-49.2","49.3-60.3", 'Other'];
 
     for (var i = 0; i < categories.length; i++) {
 
@@ -49,7 +46,6 @@ legend.onAdd = function (map) {
     div.innerHTML = labels.join('<br>');
     return div;
 };
-
 legend.addTo(map);
 
 // this section is for an interactive map
@@ -68,16 +64,13 @@ function highlightFeature(e) {
     }
     info.update(layer.feature.properties);
 }
-
 function resetHighlight(e) {
     geojson.resetStyle(e.target);
     info.update();
 }
-
 function zoomToFeature(e) {
     map.fitBounds(e.target.getBounds());
 }
-
 function onEachFeature(feature, region) {
     region.on({
         mouseover: highlightFeature,
@@ -90,7 +83,6 @@ geojson = L.geoJson(region, {
     style: style,
     onEachFeature: onEachFeature
 }).addTo(map);
-
 // this section is to show info on each feature hovered by the mous
 var info = L.control();
 

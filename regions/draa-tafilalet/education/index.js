@@ -9,9 +9,10 @@ L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
 }).addTo(map);
 
 function getColor(d) {
-    return d == 0.45 | d == "0.45" ? '#fee6ce' :
-            d == 0.516 | d == "0.516" ? '#fdae6b' :
-                            '#FEB24C';
+    return d == 0.465 | d == "0.465" ? '#fee6ce' :
+            (0.466 < d & d < 0.565) | d == "0.466-0.565" ? '#fdae6b' :
+            (0.566 < d & d < 0.586) | d == "0.566-0.586" ? '#e6550d' :
+                                    '#FEB24C';
 }
 
 function style(feature) {
@@ -34,8 +35,8 @@ var legend = L.control({ position: 'bottomleft' });
 legend.onAdd = function (map) {
 
     var div = L.DomUtil.create('div', 'info legend');
-    labels = ['<strong>Taux de couverture forestière en 2014 (%)</strong>'],
-        categories = ["0.45", "0.516", 'Other'];
+    labels = ['<strong>Indice de Gini de l’éducation en 2014</strong>'],
+        categories = ["0.465", "0.466-0.565","0.566-0.586",'Other'];
 
     for (var i = 0; i < categories.length; i++) {
 
@@ -101,8 +102,8 @@ info.onAdd = function (map) {
 
 // method that we will use to update the control based on feature properties passed
 info.update = function (props) {
-    this._div.innerHTML = '<h4>Indice de Gini de l’éducation en 2014</h4>' +  (props ?
-     '<b>' + props.Nom_Provin + '</b><br />' + props.Education_
-     : 'Hover over a state');
-    };
+    this._div.innerHTML = '<h4>Indice de Gini de l’éducation en 2014</h4>' + (props ?
+        '<b>' + props.Nom_Provin + '</b><br />' + props.Education_
+        : 'Hover over a state');
+};
 info.addTo(map);

@@ -9,11 +9,11 @@ L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
 }).addTo(map);
 
 function getColor(d) {
-    return  d == 18897.0 |d == "18897.0" ? '#fee6ce' :
-            d == 56620.0 |d == "56620.0" ? '#fdae6b' :
-                            '#2b8cbe';
+    return (16559 < d & d< 20559) | d == "16559-20559" ? '#fee6ce' :
+            (205560 < d & d < 24600) |d == "205560-24600" ? '#fdae6b' :
+            (24601 < d & d < 48111)|d == "24601-48111" ? '#e6550d' :
+                                    '#FEB24C';
 }
-
 function style(feature) {
     return {
         weight: 2,
@@ -34,8 +34,8 @@ var legend = L.control({ position: 'bottomleft' });
 legend.onAdd = function (map) {
 
     var div = L.DomUtil.create('div', 'info legend');
-    labels = ['<strong>Taux de couverture forestière en 2014 (%)</strong>'],
-        categories = ["18897.0", "56620.0", 'Other'];
+    labels = ['<strong>PIB par habitant (DH)</strong>'],
+        categories = ["16559-20559", "205560-24600","24601-48111", 'Other'];
 
     for (var i = 0; i < categories.length; i++) {
 
@@ -101,8 +101,8 @@ info.onAdd = function (map) {
 
 // method that we will use to update the control based on feature properties passed
 info.update = function (props) {
-    this._div.innerHTML = '<h4>PIB par habitant (DH)</h4>' +  (props ?
-     '<b>' + props.Nom_Provin + '</b><br />' + props.PIBparHABI + 'DHs'
-     : 'Hover over a state');
-    };
+    this._div.innerHTML = '<h4>PIB par habitant (DH)</h4>' + (props ?
+        '<b>' + props.Nom_Provin + '</b><br />' + props.PIBparHABI + 'DHs'
+        : 'Hover over a state');
+};
 info.addTo(map);

@@ -1,18 +1,17 @@
-var map = L.map('map').setView([34, -4], 6);
 
-L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
-    maxZoom: 18,
-    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
-        '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
-        'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-    id: 'mapbox/streets-v11'
+var map = L.map('map').setView([34, -4], 4);
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 }).addTo(map);
 
 function getColor(d) {
-    return d == 1.7 | d == "1.7" ? '#fee6ce' :
-            d == 3.3 | d == "3.3" ? '#fdae6b' :
-                            '#FEB24C';
+    return d == 0.6  | d == "0.6"  ? '#fee6ce' :
+            (0.7 < d & d < 2.2) | d == "0.7-2.2" ? '#fdae6b' :
+            (2.3 < d & d < 4.2)| d == "2.3-4.2" ? '#e6550d' :
+                                    '#FEB24C';
 }
+
+
 
 function style(feature) {
     return {
@@ -34,8 +33,8 @@ var legend = L.control({ position: 'bottomleft' });
 legend.onAdd = function (map) {
 
     var div = L.DomUtil.create('div', 'info legend');
-    labels = ['<strong>Taux de couverture forestière en 2014 (%)</strong>'],
-        categories = ["1.7", "3.3", 'Other'];
+    labels = ['<strong>Qualité de la vie en 2014 (%) </strong>'],
+        categories = ["0.6","0.7-2.2", "2.3-4.2", 'Other'];
 
     for (var i = 0; i < categories.length; i++) {
 
@@ -48,7 +47,6 @@ legend.onAdd = function (map) {
     div.innerHTML = labels.join('<br>');
     return div;
 };
-
 legend.addTo(map);
 
 // this section is for an interactive map
@@ -67,16 +65,13 @@ function highlightFeature(e) {
     }
     info.update(layer.feature.properties);
 }
-
 function resetHighlight(e) {
     geojson.resetStyle(e.target);
     info.update();
 }
-
 function zoomToFeature(e) {
     map.fitBounds(e.target.getBounds());
 }
-
 function onEachFeature(feature, region) {
     region.on({
         mouseover: highlightFeature,
@@ -89,7 +84,6 @@ geojson = L.geoJson(region, {
     style: style,
     onEachFeature: onEachFeature
 }).addTo(map);
-
 // this section is to show info on each feature hovered by the mous
 var info = L.control();
 
@@ -101,8 +95,8 @@ info.onAdd = function (map) {
 
 // method that we will use to update the control based on feature properties passed
 info.update = function (props) {
-    this._div.innerHTML = '<h4>Qualité de la vie en 2014 (%) </h4>' +  (props ?
-     '<b>' + props.Nom_Provin + '</b><br />' + props.Qualite_vie + ' %'
-     : 'Hover over a state');
-    };
+    this._div.innerHTML = '<h4>Qualité de la vie en 2014 (%) </h4>' + (props ?
+        '<b>' + props.Nom_Provin + '</b><br />' + props.Qualite_vie + ' %'
+        : 'Hover over a state');
+};
 info.addTo(map);

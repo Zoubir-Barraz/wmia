@@ -9,9 +9,10 @@ L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
 }).addTo(map);
 
 function getColor(d) {
-    return d == 0.4 | d == "0.4"? '#fee6ce' :
-            d == 1.5 | d == "1.5" ? '#fdae6b' :
-                            '#FEB24C';
+    return (8.6 < d & d< 10.7) | d == "8.6-10.7" ? '#fee6ce' :
+            (10.8 < d & d < 14.2)| d == "10.8-14.2" ? '#fdae6b' :
+            (14.3 < d & d < 20.2)| d == "14.3-20.2" ? '#e6550d' :
+                                    '#FEB24C';
 }
 
 
@@ -35,8 +36,8 @@ var legend = L.control({ position: 'bottomleft' });
 legend.onAdd = function (map) {
 
     var div = L.DomUtil.create('div', 'info legend');
-    labels = ['<strong>Taux de couverture forestière en 2014 (%)</strong>'],
-        categories = ["0.4", "1.5", 'Other'];
+    labels = ['<strong>Taux de pauvreté en 2014 (%)</strong>'],
+        categories = ["8.6-10.7", "10.8-14.2","14.3-20.2", 'Other'];
 
     for (var i = 0; i < categories.length; i++) {
 
@@ -102,8 +103,8 @@ info.onAdd = function (map) {
 
 // method that we will use to update the control based on feature properties passed
 info.update = function (props) {
-    this._div.innerHTML = '<h4>Taux de pauvreté en 2014 (%) </h4>' +  (props ?
-     '<b>' + props.Nom_Provin + '</b><br />' + props.Taux_Pauvr + ' %'
-     : 'Hover over a state');
-    };
+    this._div.innerHTML = '<h4>Taux de pauvreté en 2014 (%) </h4>' + (props ?
+        '<b>' + props.Nom_Provin + '</b><br />' + props.Taux_Pauvr + ' %'
+        : 'Hover over a state');
+};
 info.addTo(map);
