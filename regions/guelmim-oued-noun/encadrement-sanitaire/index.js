@@ -1,15 +1,19 @@
 var map = L.map('map').setView([32, -6], 4.75);
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+
+L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+    maxZoom: 18,
+    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+        '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+        'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+    id: 'mapbox/streets-v11'
 }).addTo(map);
 
 function getColor(d) {
-    return (1.50 <= d & d< 1.62) | d == "1.5-1.61" ? '#ffcd94' :
-            (1.62 <= d & d < 3.48) | d == "1.61-3.47" ? '#ffad60' :
-            (3.48 <= d & d < 5.1) | d == "3.47-5" ? '#ff4d00' :
+    return (1990 < d & d< 2136) | d == "1989-2135" ? '#00FFFF' :
+            (2136 < d & d < 3619) | d == "2135-3618" ? '#03396c' :
+            (3619 < d & d < 5616) | d == "3618-5615" ? '#005b96' :
                                 '#FFEDA0';
 }
-
 
 function style(feature) {
     return {
@@ -18,7 +22,7 @@ function style(feature) {
         color: 'white',
         dashArray: '3',
         fillOpacity: 0.7,
-        fillColor: getColor(feature.properties.Qualite_vie)
+        fillColor: getColor(feature.properties.ENCADREMEN)
     };
 }
 
@@ -31,8 +35,8 @@ var legend = L.control({ position: 'bottomleft' });
 legend.onAdd = function (map) {
 
     var div = L.DomUtil.create('div', 'info legend');
-    labels = ['<strong>Qualité de la vie en 2014 (%) </strong>'],
-        categories = ["1.5-1.61", "1.61-3.47", "3.47-5", 'Other'];
+    labels = ["<strong>Nombre d'habitant par médcin</strong>"],
+        categories = ["1989-2135", "2135-3618" , "3618-5615", 'Other'];
 
     for (var i = 0; i < categories.length; i++) {
 
@@ -45,6 +49,7 @@ legend.onAdd = function (map) {
     div.innerHTML = labels.join('<br>');
     return div;
 };
+
 legend.addTo(map);
 
 // this section is for an interactive map
@@ -63,13 +68,16 @@ function highlightFeature(e) {
     }
     info.update(layer.feature.properties);
 }
+
 function resetHighlight(e) {
     geojson.resetStyle(e.target);
     info.update();
 }
+
 function zoomToFeature(e) {
     map.fitBounds(e.target.getBounds());
 }
+
 function onEachFeature(feature, region) {
     region.on({
         mouseover: highlightFeature,
@@ -82,6 +90,7 @@ geojson = L.geoJson(region, {
     style: style,
     onEachFeature: onEachFeature
 }).addTo(map);
+
 // this section is to show info on each feature hovered by the mous
 var info = L.control();
 
@@ -93,8 +102,8 @@ info.onAdd = function (map) {
 
 // method that we will use to update the control based on feature properties passed
 info.update = function (props) {
-    this._div.innerHTML = '<h4>Qualité de la vie en 2014 (%) </h4>' + (props ?
-        '<b>' + props.Nom_Provin + '</b><br />' + props.Qualite_vie + ' %'
+    this._div.innerHTML = "<h4>Nombre d'habitant par médcin</h4>"+ (props ?
+        '<b>' + props.Nom_Provin + '</b><br />' + props.ENCADREMEN + ' %'
         : 'Hover over a state');
 };
 info.addTo(map);
