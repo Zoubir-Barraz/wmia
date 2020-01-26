@@ -94,7 +94,7 @@ var map = L.map('map').setView([32, -6], 4.75);
 	// method that we will use to update the control based on feature properties passed
 	info.update = function (props) {
     this._div.innerHTML = '<h4>Taux de mortalité maternelle en 2015 Pour 10.000 accouchements </h4>' +  (props ?
-        '<b>' + props.Nom_Provin + '</b><br />' + props.Moralite_ + ' %'
+        '<b>' + props.Nom_Provin + '</b><br />' + props.Moralite_ 
         : 'Hover over a state');
 };
 	info.addTo(map);
